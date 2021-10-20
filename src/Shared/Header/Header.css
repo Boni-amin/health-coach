@@ -13,3 +13,10 @@
 .navbar-toggler-icon{
     background-color: #2ecc39;
 }
+.signin-button{
+    width: 90px;
+    height: 28px;
+    font-size: 13px;
+    line-height: 44%;
+
+}

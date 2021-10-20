@@ -9,6 +9,9 @@ import Fotter from './Shared/Fotter/Fotter';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Login from './Pages/Login/Login';
 import AuthProvider from './context/AuthProvider';
+import NewAccount from './Pages/NewAccount/NewAccount';
+import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -28,8 +31,14 @@ function App() {
             <Route path="/aboutus">
               <AboutUs></AboutUs>
             </Route>
+            <PrivateRoute path="/service-details/:serviceId">
+              <ServiceDetails></ServiceDetails>
+            </PrivateRoute>
             <Route path="/login">
-            <Login></Login>
+                <Login></Login>
+            </Route>
+            <Route path="/createaccount">
+                <NewAccount></NewAccount>
             </Route>
             <Route path="*">
               <NotFound />

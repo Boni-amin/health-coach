@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import './Login.css'
 
-const Login = () => {
+const NewAccount = () => {
     const { signInUsingGoogle, signInGitgub } = useAuth()
     return (
         <div className="login-area my-5">
@@ -18,6 +17,10 @@ const Login = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label float-start">Password</label>
+                                <input type="password" className="form-control" id="exampleInputPassword1" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputPassword1" className="form-label float-start">Re-type Password</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
                             <div className="d-flex justify-content-between">
@@ -38,7 +41,7 @@ const Login = () => {
                                 <div><button onClick={signInGitgub} className="btn all-button ms-2">Github</button></div>
                                 </div>
                            </div>
-                           <p className="mt-5">Don't have an account? <Link to="/createaccount"><span className="text-primary">Register here</span> </Link> </p>
+                           <p className="mt-5">Don't have an account? <Link to="/login"><span className="text-primary">Login here</span> </Link> </p>
                     </div>
                 </div>
             </div>
@@ -46,4 +49,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default NewAccount;
