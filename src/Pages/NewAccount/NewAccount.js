@@ -3,26 +3,30 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const NewAccount = () => {
-    const { signInUsingGoogle, signInGitgub } = useAuth()
+    const { signInUsingGoogle, signInGitgub , handleRegistration , handleNameChange, handlePasswordChange, handleEmailChange} = useAuth()
     return (
         <div className="login-area my-5">
             <div className="container">
                 <div className="row text-center">
                     <div className="w-75 mx-auto">
                         <h1 className="heading-all-h1">Create an account</h1>
-                        <form>
+                        <form onSubmit={handleRegistration}>
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputEmail1" className="form-label float-start">Name</label>
+                                <input onBlur={handleNameChange} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label float-start">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input onBlur={handleEmailChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label float-start">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" />
+                                <input onBlur={handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
-                            <div className="mb-3">
+                            {/* <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label float-start">Re-type Password</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
-                            </div>
+                            </div> */}
                             <div className="d-flex justify-content-between">
                                 <div>
                                 <input type="checkbox" className="form-check-input me-1" id="exampleCheck1" />
@@ -32,7 +36,7 @@ const NewAccount = () => {
                                     <a href="#">Forgot password?</a>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-primary mt-3 w-50">Login</button>
+                            <button type="submit" className="btn btn-primary mt-3 w-50">Register</button>
                             </form>
                            <div className="mt-5 ">
                                <h5 className="all-h5-tag mb-3">or login with</h5>

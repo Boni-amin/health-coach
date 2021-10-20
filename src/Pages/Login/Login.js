@@ -4,21 +4,25 @@ import useAuth from '../../hooks/useAuth';
 import './Login.css'
 
 const Login = () => {
-    const { signInUsingGoogle, signInGitgub } = useAuth()
+    const { signInUsingGoogle, signInGitgub, handleLogin, handlePasswordChange, handleEmailChange} = useAuth()
     return (
         <div className="login-area my-5">
             <div className="container">
                 <div className="row text-center">
                     <div className="w-75 mx-auto">
                         <h1 className="heading-all-h1">Create an account</h1>
-                        <form>
+                        <form onSubmit={handleLogin}>
+                            {/* <div className="mb-3">
+                                <label htmlFor="exampleInputEmail1" className="form-label float-start">Name</label>
+                                <input onBlur={handleNameChange} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            </div> */}
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label float-start">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <input onBlur={handleEmailChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label float-start">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" />
+                                <input onBlur={handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
                             <div className="d-flex justify-content-between">
                                 <div>
